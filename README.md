@@ -15,6 +15,10 @@ Had to modify install.py to use python3
 
 script 7 requires the installation of Unreal_Engine as well
 
+Install Anaconda (provides tensorflow, requires python 3.6.8.
+
+cuda, cudnn https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_10
+
 ORDER
 - 1-6 at once
 - 7
