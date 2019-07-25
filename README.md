@@ -13,5 +13,10 @@ script 7 is from
 https://github.com/deepdrive/deepdrive#tensorflow-install-tips
 Had to modify install.py to use python3
 
-
 script 7 requires the installation of Unreal_Engine as well
+
+ORDER
+- 1-6 at once
+- 7
+- modify install.py in deepdrive
+- 8

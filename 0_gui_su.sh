@@ -1,2 +1,3 @@
-sudo apt-get install gnome-core vnc4server
+sudo apt update
+sudo apt install gnome-core vnc4server
 # vncserver -kill :1
