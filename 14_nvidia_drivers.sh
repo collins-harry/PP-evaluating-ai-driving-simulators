@@ -1,0 +1,2 @@
+curl --header "Host: developer.download.nvidia.com" --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36" --header "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3" --header "Accept-Language: en-GB,en;q=0.9,en-US;q=0.8" "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.168-1_amd64.deb" -o "cuda-repo-ubuntu1804_10.1.168-1_amd64.deb" -L
+
