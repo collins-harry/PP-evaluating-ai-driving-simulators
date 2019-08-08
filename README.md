@@ -4,6 +4,13 @@ Evaluating the generalisation of AI driving simulator trained models by their pe
 ## How to ssh into the server
 https://nabtron.com/gcc-mac-terminal/
 
+## Setting up the terminal and getting setup scripts
+Setup git ssh keys 
+https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+git clone git@github.com:hcollins345/PP-evaluating-ai-driving-simulators.git\
+git clone git@github.com:hcollins345/dotfiles
+
 ## Scripts
 script 0 is for gui
 https://medium.com/google-cloud/graphical-user-interface-gui-for-google-compute-engine-instance-78fccda09e5c
