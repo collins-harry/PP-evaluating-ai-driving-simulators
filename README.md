@@ -1,6 +1,9 @@
 # PP-evaluating-ai-driving-simulators
 Evaluating the generalisation of AI driving simulator trained models by their performance in other simulators
 
+## How to ssh into the server
+https://nabtron.com/gcc-mac-terminal/
+
 ## Scripts
 script 0 is for gui
 https://medium.com/google-cloud/graphical-user-interface-gui-for-google-compute-engine-instance-78fccda09e5c
