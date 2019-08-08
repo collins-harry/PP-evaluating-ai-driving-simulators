@@ -8,8 +8,10 @@ https://nabtron.com/gcc-mac-terminal/
 Setup git ssh keys 
 https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-git clone git@github.com:hcollins345/PP-evaluating-ai-driving-simulators.git\
+```
+git clone git@github.com:hcollins345/PP-evaluating-ai-driving-simulators.git
 git clone git@github.com:hcollins345/dotfiles
+```
 
 ## Scripts
 script 0 is for gui
