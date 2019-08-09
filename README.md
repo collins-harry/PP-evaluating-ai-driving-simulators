@@ -13,10 +13,33 @@ git clone git@github.com:hcollins345/PP-evaluating-ai-driving-simulators.git
 git clone git@github.com:hcollins345/dotfiles
 ```
 
+## Anaconda
+https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
+
+Goal is to install anaconda3 and to create an environment that uses python 3.6 (compatible with tensorflow).
+All scripts are found in the anaconda folder. 
+
+## Setting up a gui
+How to install a desktop:\
+https://www.linuxtrainingacademy.com/install-desktop-on-ubuntu-server/
+
+How to set up a vncserver:\
+https://medium.com/google-cloud/linux-gui-on-the-google-cloud-platform-800719ab27c5  
+https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788474221/1/ch01lvl1sec15/installing-and-configuring-ubuntu-desktop-for-google-cloud-platform  
+http://leadtosilverlining.blogspot.com/2019/01/setup-desktop-environment-on-google.html (THIS ONE IS THE MOST DETAILED)
+
+NOTE: still need to set up a VNCviewer on local.\
+https://www.realvnc.com/en/connect/download/viewer/  
+Also you will have to enable http and https accepting tcp:5901 with tage vnc-server in target connections in firewall in the google compute center (under VPC network section).
+
+You should then be able to connect to your server desktop using your vncviewer.
+Also useful commands
+```
+vncserver -geometry "1920x1080"
+vncserver -kill :1
+```
+
 ## Scripts
-script 0 is for gui
-https://medium.com/google-cloud/graphical-user-interface-gui-for-google-compute-engine-instance-78fccda09e5c
-requires that firewall (in VPC Network) has http and https accept tcp:5901 and has the tag vnc-server in target.
 
 scripts 1-6 are modified from
 https://carla.readthedocs.io/en/latest/how_to_build_on_linux/
