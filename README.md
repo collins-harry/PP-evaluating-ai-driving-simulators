@@ -30,7 +30,8 @@ http://leadtosilverlining.blogspot.com/2019/01/setup-desktop-environment-on-goog
 
 NOTE: still need to set up a VNCviewer on local.\
 https://www.realvnc.com/en/connect/download/viewer/  
-Also you will have to enable http and https accepting tcp:5901 with tage vnc-server in target connections in firewall in the google compute center (under VPC network section).
+Also you will have to enable http and https accepting tcp:5901 with tage vnc-server in target connections in firewall in the google compute center (under VPC network section).\
+Do not use tightvncserver as it does not support randr, tried vnc4server which does support it but still unable to get it to function. Recommended to try TurboVNC.
 
 You should then be able to connect to your server desktop using your vncviewer.
 Also useful commands
@@ -38,6 +39,31 @@ Also useful commands
 vncserver -geometry "1920x1080"
 vncserver -kill :1
 ```
+
+## Tensorflow CUDA cuDNN and Nvidia Drivers
+See compatible TF-CUDA-cuDNN here:\
+https://www.tensorflow.org/install/source#tested_build_configurations
+
+These scripts use tf:1.14.0, CUDA 10.0 and cuDNN:7.4
+https://mc.ai/tensorflow-gpu-installation-on-ubuntu-18-04/
+
+What to do with the drivers under (additional information)
+https://www.nvidia.com/Download/driverResults.aspx/143675/en-us
+
+To see tensorflow version installed use
+```
+python -c 'import tensorflow as tf; print(tf.__version__)'
+```
+
+## CARLA
+
+https://carla.readthedocs.io/en/latest/carla_headless/  
+https://github.com/carla-simulator/carla/issues/312  
+https://github.com/carla-simulator/carla/issues/1112  
+
+*Benchmarking*\
+https://carla.readthedocs.io/en/stable/benchmark_start/
+
 
 ## Scripts
 
