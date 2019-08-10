@@ -47,13 +47,26 @@ https://www.tensorflow.org/install/source#tested_build_configurations
 These scripts use tf:1.14.0, CUDA 10.0 and cuDNN:7.4
 https://mc.ai/tensorflow-gpu-installation-on-ubuntu-18-04/
 
-What to do with the drivers under (additional information)
+https://www.tensorflow.org/install/gpu#linux_setup
+
+What to do with the drivers under (additional information)\
 https://www.nvidia.com/Download/driverResults.aspx/143675/en-us
 
 To see tensorflow version installed use
 ```
 python -c 'import tensorflow as tf; print(tf.__version__)'
 ```
+
+To check that tf, cuda and cudnn are installed correctly run the file
+```
+python verify_tf_cuda_cudnn.py
+```
+
+CUDA\
+https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+
+NUMA warning for tensorflow fix
+https://dmitry.ai/t/topic/50/2
 
 ## CARLA
 https://usermanual.wiki/Document/CARLASetupGuideUbuntu.271743992.pdf
@@ -76,6 +89,14 @@ Unable to run the 'standalone' Carla but can run server and can use manual_contr
 vncserver
 export DISPLAY=:1
 ```
+
+
+## Deepdrive
+
+https://github.com/deepdrive/deepdrive
+
+
+
 
 ## Scripts
 
