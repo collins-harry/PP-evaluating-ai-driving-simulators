@@ -64,6 +64,11 @@ https://github.com/carla-simulator/carla/issues/1112
 *Benchmarking*\
 https://carla.readthedocs.io/en/stable/benchmark_start/
 
+Using TurboVNC and VirtualGL\
+https://gist.github.com/cyberang3l/422a77a47bdc15a0824d5cca47e64ba2
+
+How to run (Running in server mode with python controller)\ 
+https://carla.readthedocs.io/en/stable/connecting_the_client/#running-the-client-examples
 
 ## Scripts
 
