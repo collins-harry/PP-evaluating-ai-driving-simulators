@@ -56,6 +56,7 @@ python -c 'import tensorflow as tf; print(tf.__version__)'
 ```
 
 ## CARLA
+https://usermanual.wiki/Document/CARLASetupGuideUbuntu.271743992.pdf
 
 https://carla.readthedocs.io/en/latest/carla_headless/  
 https://github.com/carla-simulator/carla/issues/312  
