@@ -70,6 +70,12 @@ https://gist.github.com/cyberang3l/422a77a47bdc15a0824d5cca47e64ba2
 How to run (Running in server mode with python controller)\ 
 https://carla.readthedocs.io/en/stable/connecting_the_client/#running-the-client-examples
 
+Unable to run the 'standalone' Carla but can run server and can use manual_control.py (uses pygame) running through vnc4server to verify ability to control the car using python scripts and in the simulator. Just run vncserver and add to DISPLAY ie.
+```
+vncserver
+export DISPLAY=:1
+```
+
 ## Scripts
 
 scripts 1-6 are modified from
