@@ -23,6 +23,36 @@ All scripts are found in the anaconda folder.
 
 https://www.anaconda.com/tensorflow-in-anaconda/
 
+## Tensorflow CUDA cuDNN and Nvidia Drivers
+Used this:
+https://www.tensorflow.org/install/gpu#linux_setup
+NOTE: sudo apt update necessary after reboot step
+
+NUMA warning for tensorflow botch/fix  
+https://dmitry.ai/t/topic/50/2  
+NOTE: also requires reboot
+
+__ extra info __
+See compatible TF-CUDA-cuDNN here:\
+https://www.tensorflow.org/install/source#tested_build_configurations
+
+These scripts use tf:1.14.0, CUDA 10.0 and cuDNN:7.6\
+https://mc.ai/tensorflow-gpu-installation-on-ubuntu-18-04/
+
+What to do with the drivers under (additional information)\
+https://www.nvidia.com/Download/driverResults.aspx/143675/en-us
+
+To see tensorflow version installed use:
+```
+python -c 'import tensorflow as tf; print(tf.__version__)'
+```
+Verify versions using tf, cuda and cudnn are installed correctly run the file:
+```
+conda list
+```
+CUDA\
+https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+
 ## Setting up a gui
 How to install a desktop:\
 https://www.linuxtrainingacademy.com/install-desktop-on-ubuntu-server/
@@ -44,33 +74,6 @@ vncserver -geometry "1920x1080"
 vncserver -kill :1
 ```
 
-## Tensorflow CUDA cuDNN and Nvidia Drivers
-See compatible TF-CUDA-cuDNN here:\
-https://www.tensorflow.org/install/source#tested_build_configurations
-
-These scripts use tf:1.14.0, CUDA 10.0 and cuDNN:7.4
-https://mc.ai/tensorflow-gpu-installation-on-ubuntu-18-04/
-
-https://www.tensorflow.org/install/gpu#linux_setup
-
-What to do with the drivers under (additional information)\
-https://www.nvidia.com/Download/driverResults.aspx/143675/en-us
-
-To see tensorflow version installed use
-```
-python -c 'import tensorflow as tf; print(tf.__version__)'
-```
-
-To check that tf, cuda and cudnn are installed correctly run the file
-```
-python verify_tf_cuda_cudnn.py
-```
-
-CUDA\
-https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
-
-NUMA warning for tensorflow fix
-https://dmitry.ai/t/topic/50/2
 
 ## CARLA
 https://usermanual.wiki/Document/CARLASetupGuideUbuntu.271743992.pdf
