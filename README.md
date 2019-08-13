@@ -60,7 +60,7 @@ https://www.linuxtrainingacademy.com/install-desktop-on-ubuntu-server/
 How to set up a vncserver:\
 https://medium.com/google-cloud/linux-gui-on-the-google-cloud-platform-800719ab27c5  
 https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788474221/1/ch01lvl1sec15/installing-and-configuring-ubuntu-desktop-for-google-cloud-platform  
-http://leadtosilverlining.blogspot.com/2019/01/setup-desktop-environment-on-google.html (THIS ONE IS THE MOST DETAILED)
+http://leadtosilverlining.blogspot.com/2019/01/setup-desktop-environment-on-google.html (THIS ONE IS THE MOST DETAILED) (I actually installed unity desktop from the first link in this section)
 
 NOTE: still need to set up a VNCviewer on local.\
 https://www.realvnc.com/en/connect/download/viewer/  
