@@ -13,6 +13,8 @@ git clone git@github.com:hcollins345/PP-evaluating-ai-driving-simulators.git
 git clone git@github.com:hcollins345/dotfiles
 ```
 
+https://github.com/hcollins345/dotfiles
+
 ## Anaconda
 https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
 
