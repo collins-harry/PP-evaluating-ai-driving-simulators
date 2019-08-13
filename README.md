@@ -21,6 +21,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubun
 Goal is to install anaconda3 and to create an environment that uses python 3.6 (compatible with tensorflow).
 All scripts are found in the anaconda folder. 
 
+https://www.anaconda.com/tensorflow-in-anaconda/
+
 ## Setting up a gui
 How to install a desktop:\
 https://www.linuxtrainingacademy.com/install-desktop-on-ubuntu-server/
