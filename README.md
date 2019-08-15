@@ -53,6 +53,11 @@ conda list
 CUDA\
 https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
 
+To see the GPU load
+```
+watch -n 1 nvidia-smi
+```
+
 ## Setting up a gui
 How to install a desktop:\
 https://www.linuxtrainingacademy.com/install-desktop-on-ubuntu-server/
