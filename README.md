@@ -102,13 +102,21 @@ vncserver
 export DISPLAY=:1
 ```
 
+```
+~carla/CarlaUE4.sh -carla-server
+```
+In another window
+```
+python ~carla/PythonClient/client_example.py -ia 
+```
 
 ## Deepdrive
 
 https://github.com/deepdrive/deepdrive
 
-
-
+```
+SDL_VIDEODRIVER=offscreen SDL_HINT_CUDA_DEVICE=0 ./Deepdrive.sh
+```
 
 ## Scripts
 
