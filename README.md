@@ -110,6 +110,26 @@ In another window
 python ~carla/PythonClient/client_example.py -ia 
 ```
 
+CARLA MODELS
+so you get scipt.misc.imresize
+```
+pip install scipy==1.1.0
+```
+Conditional imitation learning model (24 GB dataset)
+https://github.com/carla-simulator/imitation-learning
+```
+cd ~carla/PythonClient
+git clone git@github.com:carla-simulator/imitation-learning.git
+```
+Inside run_CIL.py, I changed to the basic experiment suite due to time constraints
+```
+python run_CIL.py
+```
+
+
+
+
+
 ## Deepdrive
 
 https://github.com/deepdrive/deepdrive
