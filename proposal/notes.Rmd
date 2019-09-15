@@ -1,0 +1,8 @@
+[Simulation the bedrock of AI](https://medium.com/simudyne/simulation-the-bedrock-of-ai-12153eaf7971)
+
+An over-reliance on data-driven models for decision-making in complex systems is risky; their key deficiency is the scarcity of observations during crisis times. This makes them fragile under the definition prescribed by Nicholas Taleb:
+“Anything that has more upside than downside from random events (or certain shocks) is antifragile; the reverse is fragile.”
+In other words, when exposed to previously unseen events, data-driven models tend to do worse than when history is repeating itself.
+
+Simulation’s key advantage over data-driven methods is that it allows us to forecast things that have never happened before and to run scenarios outside of historical bounds — including crisis scenarios.
+

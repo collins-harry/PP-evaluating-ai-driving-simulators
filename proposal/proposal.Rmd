@@ -1,0 +1,88 @@
+---
+title: Personal Pursuit Proposal
+output: pdf_document
+bibliography: ./bibliography_proposal.bib
+link-citations: true
+linkcolor: blue
+csl: ieee.csl
+---
+
+
+##Basic Information  
+Year 2  
+First proposal (agreed upon with the supervisor)  
+Name: Harry Collins  
+Student number: s1664050  
+Date: 28-06-19  
+Title of the proposal (title given here will be on the transcript): Investigating the use of unseen simulators for evaluating self-driving car models
+
+## Abstract (max 150 words)
+
+Through my time at ATLAS I have demonstrated my passion for all things Data Science; In this semester alone taking courses teaching Data preparation, Semi-structured data systems, Natural Language Processing and Advanced Machine Learning Techniques.
+However I have not delved into autonomous vehicles, one of the core challenges in Data Science;
+With autonomous vehicle being so prevalent in technical news feeds, I thought it would be interesting to explore the technologies behind them as part of my personal pursuit.
+
+My personal pursuit is based on an idea that if an autonomous driving simulator produces models that generalise well to other simulators, they might also generalise better to reality.
+Therefore I want to test the cross-performance or generalisation of autonomous driving simulator models on other driving simulators. 
+i.e. I want to test how models trained on one simulator perform in a second simulator without the aid of transfer learning. 
+
+## Topic (max 350 words)
+*What is your topic? Why are you passionate about/interested in this topic? *
+
+Training autonomous vehicles can be a very expensive and challenge endeavour. 
+The first challenge is collecting the thousands or millions of hours of driving data needed to train the autonomous driver. 
+The second is actually verifying the safety of these autonomous drivers.
+The most obvious way to assess safety is to test drive autonomous vehicles in real traffic, observe their performance and statistically compare the results to humans [@Kalra2016]. 
+However as shown in [@Kalra2016], over 5 billion driven miles would be necessary in order to verify that an autonomous car was statistically 20% safer than a human;
+To have only an 80% chance of correctly verifying that AI driver is safer (known in statistics as power) requires over 11 billion miles; 
+100 vehicles driving 24 hours a day averaging 25 mph would take over 500 years to log that much time [@Kalra2016]. 
+
+Simulators are far cheaper and convenient for both generating training data and verifying the performance of AI driving models. 
+Servers can drive millions of miles a day at a fraction of the per distance cost. 
+Through simulators it is possible to design and generate emergency scenarios to verify the system makes the correct responses [@Wotawa2018]; These types of scenarios are infrequent in real driving data.
+It is critical to the feasibility of creating autonomous vehicles to have the ability to verify the performance of models and autonomous systems to some degree in the simulation phases of design in order to reduce both risk and costs. 
+
+However simulators are only a simplification or representation of reality. 
+The Models have to be able to generalise in order to handle the differences between the simulator and reality.
+
+I want to conduct a preliminary analysis of how models cope with the differences between different simulators and possibly make inferences on the ability of the tested models to handle the differences between the simulators and reality. 
+
+## Learning Goals
+*What are the main learning goals you wish to reach in this PP (max. 3 goals)? Define your goals as precisely as possible. Explain how these go beyond the regular ATLAS curriculum and how reaching them contributes to becoming a ‘well-rounded engineer’. Make sure it is realistic to reach these goals in a 6 EC PP. Goal 1: Conceive, design, and execute a goal-oriented learning experience at an academic level, inspired by a personal interest or passion. Goal 2: Goal 3: *
+
+**Goal 1:** Learn and gain experience in the tensorflow framework for the use and performance analysis of machine learning models  
+**Goal 2:** Gain experience in the use of popular autonomous driving simulators such as CARLA and deepdrive.  
+**Goal 3:** Learn how to integrate tensorflow with simulator software and how to transfer models between simulators with different interfaces and features.
+
+**NOTE:** the goals are not concerned with gaining experience in the design and/or training of machine learning models. 
+There are many courses available which teaching those exact subjects. 
+
+## Activities
+*What exactly are you going to do? Specify the main activities of your PP through which you intend to reach your learning goals. What will your intermediary and final products be? When will you carry out these activities? What are milestones? Add a planning.*
+
+1. Follow introduction tutorial to tensorflow / tensorboard
+2. Set up simulator on cloud computing platform
+3. Run a pre-trained model through tensorflow
+4. Repeat for other simulators
+5. Test models on other simulators
+    * Mapping the new inputs to the models
+    * Running tests
+    * Evaluating and comparing their performance over the different fitness criteria
+6. Write report on the findings
+
+## Supervision
+*What kind of supervision do you need? If you have already been in contact with a potential supervisor, please include her/his name and contact details.*
+
+I have been in contact with Seán Mullery, coordinator for the masters in connected and autonomous vehicles at Sligo Institute of Technology. 
+He has agreed to act as supervisor for the project.  
+**Staff Page: **[Seán Mullary](https://www.itsligo.ie/research/staffprofiles/sean-mullery/)  
+**Contact:** mullery.sean@itsligo.ie
+
+
+## Outreach
+*In which ways will you share your results and learning experiences with the ATLAS community? When will you do this? *
+
+I will have a printed copy of the report placed in the Atlantis room and its presence announced within the Atlantis community.
+
+
+--------
