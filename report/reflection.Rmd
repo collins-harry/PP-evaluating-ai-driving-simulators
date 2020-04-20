@@ -1,0 +1,114 @@
+---
+title: Personal Pursuit
+subtitle: Reflection
+author: Harry Collins
+output: pdf_document
+urlcolor: blue
+linkcolor: black
+header-includes:
+  - \usepackage{caption}
+---
+
+# Learning goals and activities
+
+The goals as outlined in my Personal Pursuit (PP) proposal can be seen in Table 1 below.
+
+------- ---------------------------------------------------------------------------------------------------
+Goal 1  Learn and gain experience in the tensorflow (tf) framework for the use and performance analysis 
+        of machine learning models
+Goal 2  Gain experience in the use of popular autonomous driving simulators such as CARLA and 
+        deepdrive
+Goal 3  Learn how to integrate tensorflow (tf) with simulator software and how to transfer models 
+        between simulators with different interfaces and features
+------- ---------------------------------------------------------------------------------------------------
+
+Table: Personal Pursuit (PP) Goals
+
+There was an important caveat specified in the proposal regarding these goals, through this project I was not concerned with gaining experience in the design and/or training of machine learning models. 
+I already have experience writing machine learning models from scratch in Matlab and at a higher level in Pytorch and Keras. 
+This project was more concerned with the application of machine learning models and how they integrate with adjacent systems. 
+
+So with those goals in mind, I planned the main activities for the project which can be seen in Table 2 below alongside their related learning goals.
+
+```{r, message = FALSE, echo=FALSE}
+library(knitr)
+df <- data.frame(Step = c(1:5,'' ,'' ,'',6),
+                 Activity = c('Follow introduction tutorial to tensorflow / tensorboard',
+                              'Set up simulator on cloud computing platform',
+                              'Run a pre-trained model through tensorflow',
+                              'Repeat for other simulators', 
+                              'Test models on other simulators', 
+                                  '\\ \\ \\ \\ Mapping the new inputs to the models', 
+                                  '\\ \\ \\ \\ Running tests',
+                                  '\\ \\ \\ \\ Evaluating and comparing their performance over the different fitness criteria',
+                              'Write report on the findings'),
+                 'PP_Goal' = c(1,2,'1,2,3','','1,2,3','','','','')
+                 )
+kable(df, caption = "Project activities and their corresponding PP goals")
+```
+
+
+# Results of learning goals
+
+While the activities of the Personal Pursuit are still ongoing. 
+Specifically trying to get results to submit for a CAEV conference in May next year. 
+I believe the learning goals have been fulfilled by the activities I have so far completed.
+
+### **Goal 1:** Learn and gain experience in the tensorflow framework for the use and performance analysis of machine learning models  
+
+I achieved this goal through the tutorials and the practical implementation of actual tensorflow models in the simulators. 
+
+In order to learn tensorflow I first followed the tutorials/series on tensorflow and autonomous vehicles from the website [pythonprogramming](https://pythonprogramming.net/tensorflow-introduction-machine-learning-tutorial/)
+
+An interesting caveat of this goal relates to the use of the tensorflow framework for performance analysis of machine learning models; 
+When training, the tensorflow model is being evaluated continuously according to a specific fitness function, in this case how well it replicates the actions of the test data (from human drivers or other path following algorithms);
+However for the final performance analysis of the model, which I could use to compare different models, I did not involve the fitness functions from the tensorflow framework/ training set but instead used the experiment suites and metrics (such as lane deviation) from the actual simulator itself. 
+
+Before starting the project I had assumed I could use tensorflow's tensorboard and the respective training sets to compare the performance. However that would have been unsuitable because we were testing which model generalised best to driving around the simulator, not which model best replicated the actions of driver in the training set.
+
+### **Goal 2:** Gain experience in the use of popular autonomous driving simulators such as CARLA and deepdrive.  
+
+While setting up CARLA and DeepDrive on a cloud compute provider was difficult, the result was the ability to leverage powerful computing hardware such as Nvidia Tesla p100s to run the simulation and machine learning software.
+
+Similarly I learnt how to configure the simulations through config files and the command line. I understand the code structure that governs the interaction between the simulator and agents and can write code to enable interaction with a running simulation as an agent.
+
+### **Goal 3:** Learn how to integrate tensorflow with simulator software and how to transfer models between simulators with different interfaces and features.
+
+As the project progressed it became clear to me that this goal is actually much more complicated than initially expected. It is better broken down into clearer sub-goals.
+
+The first sub-goal was to learn how to integrate tensorflow with simulator software. 
+This was demonstrated in the project where I used and benchmarked different tensorflow models to control agents acting in the simulator through the interfacing environments. 
+
+The second sub-goal was learning to transfer models between simulators. 
+I detached the DeepDrive CIL model from the DeepDrive environment and successfully managed to make the Sensor inputs (Camera) from the Carla simulator/ interface environment compatible with the DeepDrive tensorflow model.
+Finding the structure of the data structure to transfer the control commands mapped from the outputs of the tf model into for interfacing with the CARLA simulator is still ongoing.
+
+# Discussion 
+
+The major difficulties encountered in this project can be traced back to two large assumptions made during the ideation phase of my Personal Pursuit. 
+
+Firstly, I assumed that the simulators with their close ties to machine learning, would be hostable on cloud computing servers by design; 
+However significant portions of functionality from both simulators were incompatible with google's cloud computing hardware, mostly GUI related functionality.
+Through solving these issues I did learn about computing server architecture, VNC servers and the simulators' design structures but ultimately it took a much larger proportion of the project time than was planned. 
+
+Secondly, I assumed that migrating machine learning models between simulators had been attempted before in the same way models are  reappropriated in other fields such as image classification. 
+Therefore when beginning the model migration stage of the project, searches on google, google scholar and scopus failed to reveal much useful literature on the subject. 
+This was a problem as it became clear how differently the two simulators implemented the models and interfaced between them and the simulations. 
+This was despite my deliberate choice to use simulators with the same underlying physics engine in order to have familiar code structure for the model migration. 
+
+Both of these assumptions could have been corrected by research before the project began. 
+Most of the research prior to implementation went into aspects of the project which I assumed would give the most trouble.
+For example I believed that getting models functioning using tensorflow would be the most difficult part of the project as I had heard that tensorflow was unintuitive when compared to pytorch or keras. 
+This is the problem with choosing a project where there is significant unknowns, it is very difficult to judge what are the most difficult aspects when you do not have the significant prior knowledge or experience. 
+For example I had no prior experience in cloud computing and did not realise it had such different requirements from desktop computing.
+Similarly this was the first project where I was rewriting large amounts of python code in software with this level of complexity;
+I underestimated the difficulty involved as I had underestimated the complexity of the interfacing between machine learning model and the simulator.
+Ultimately, the project had to be conducted on a cloud computing platform, as the simulators and the machine learning models both required high memory GPUs and the complexity of the interfacing and the differences between the simulators underlying coding decisions are solvable.
+
+# Conclusion
+
+In my personal pursuit I sought to gain experience in tensorflow, self-driving car simulators and how they both integrate together. 
+I have achieved this through learning tensorflow on pythonprogramming, hosting both CARLA and DeepDrive and google's cloud computing platform, benchmarking different Conditional Imitation Learning models on both simulators in tensorflow and attempting to migrate models between simulators.
+
+
+

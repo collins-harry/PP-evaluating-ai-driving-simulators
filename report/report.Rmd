@@ -1,120 +1,136 @@
 ---
 title: Investigating the use of unseen simulators for evaluating self-driving car models
-subtitle: https://github.com/hcollins345/PP-evaluating-ai-driving-simulators
 author:
-  - Harry \vspace{.25cm}
+  - Harry Collins, s1664050 \vspace{.25cm}
   - \textnormal{Supervised by:} \vspace{.25cm}
-  - Seán
+  - \href{https://www.itsligo.ie/research/staffprofiles/sean-mullery/}{Seán Mullery}, Sligo Institute of Technology
 output: pdf_document
 #classoption: twocolumn
 bibliography: ./bibliography_report.bib
 link-citations: true
 linkcolor: blue
-csl: ieee.csl
-abstract: This project aimed to investigate how self-driving machine learning models perform in environments built in simulators unseen in training. The simulators, CARLA and DeepDrive were hosted using google cloud services.
+csl: acm_sigs.csl
+abstract: This work was focused on the use of simulators for training self-driving cars, a topic currently featured prominently in machine learning research and legislative discussions. The work aimed to evaluate the possibility of using unseen simulators to improve self-driving car models by comparing the performance of different simulator-trained models on unseen simulators. The project was unable to find previous work on the use of multiple simulators to train self-driving car models. The project successfully installed unsupported simulation software, CARLA and DeepDrive to a cloud computing platform leveraging cost-effective and scalable computing power. This opens up a potentially new area of connected and autonomous vehicle research in the use of unseen simulators to evaluate models' ability to generalise to reality which could increase real-world performance and decrease development costs.
 header-includes:
   - \usepackage{multicol}
   - \newcommand{\btwocol}{\begin{multicols}{2}}
   - \newcommand{\etwocol}{\end{multicols}}
   - \usepackage{caption}
+  - \usepackage{wrapfig}
+  - \usepackage{hyperref}
+---
+
+---
+In 2019, training and verification methods for autonomous vehicles are featuring heavily in machine learning research, legislative discussions and the media with large investments in technology and promotion from companies such as Google and Tesla.
+
+
+This research investigates the use of unseen simulators for the evaluation of simulator trained self-driving car models. 
+The authors literature review found no other papers investigating this method.
 ---
 
 \btwocol
 
 # Introduction
 
-This personal pursuit attempts a preliminary analysis of how self-driving machine learning models cope with the differences between different simulators and possibly make inferences on the ability of the tested models to handle the differences between simulators and reality. 
+Training autonomous vehicles can be a very expensive and challenging endeavour. 
+The first challenge is collecting the thousands or millions of hours of driving data needed to train an autonomous driver. 
+The second is verifying the safety of the trained autonomous drivers.
+The high cost and small quantity of real-life data has made its use alone for training infeasible.
+The lower costs and increased model performance from larger quantities of data have necessitated the heavy use of simulated data for both the training and testing of autonomous driver models. 
+However there remains questions concerning the ability of models to transfer from simulated to real environments.
 
-Ultimately the goals is to help to create better and safer self-driving cars. 
-The hope is that if a model can generalise well to an unseen simulator, it can generalise well to reality. 
-Similarly, cross simulator testing could help to better understand if or how simulator design choices affect model creation and performance.
+This work attempts a preliminary analysis of how self-driving machine learning models cope with the differences between different simulators.
+The goal is to make inferences on the ability of the tested models to handle the differences between simulators and reality. 
 
-# Methodology
+The basis of the project is the hypothesis that if a simulator-trained model can generalise well to an unseen simulator, it can generalise well to reality. 
+Similarly, this proposed cross simulator testing could help to better understand how simulator design choices affect model creation and real-life performance.
 
-The learning goals of the project were;
+Currently the use of multiple different simulating softwares in the design and creation of self-driving car models has been unexplored in research. 
 
-1. Learn and gain experience in the tensorflow (tf) framework for the use and performance analysis of machine learning models
-2. Gain experience in the use of popular autonomous driving simulators such as CARLA and deepdrive
-3. Learn how to integrate tensorflow (tf) with simulator software and how to transfer models between simulators with different interfaces and features
-
-NOTE: The goals were not concerned with gaining experience in the design and/or training of machine learning models. 
-
-These goals were to be achieved through the following activities;
-
-1. Follow introduction tutorial to tensorflow / tensorboard
-2. Set up simulator on cloud computing platform
-3. Run a pre-trained model through tensorflow
-4. Repeat for other simulators
-5. Test models on other simulators
-    * Mapping the new inputs to the models
-    * Running tests
-    * Evaluating and comparing their performance over the different fitness criteria
-6. Write report on the findings
-
-# Topic Background
+# Literature Review
 
 Training autonomous vehicles can be a very expensive and challenge endeavour. 
-The first challenge is collecting the thousands or millions of hours of driving data needed to train the autonomous driver. 
-The second is actually verifying the safety of these autonomous drivers.
+Current challenges facing autonomous driving companies and legislators today include the large amount of training data required and how to verify the safety of an autonomous driver. 
 The most obvious way to assess safety is to test drive autonomous vehicles in real traffic, observe their performance and statistically compare the results to humans [@Kalra2016]. 
 However as shown in [@Kalra2016], over 5 billion driven miles would be necessary in order to verify that an autonomous car was statistically 20% safer than a human;
 To have only an 80% chance of correctly verifying that AI driver is safer (known in statistics as power) requires over 11 billion miles; 
-100 vehicles driving 24 hours a day averaging 25 mph would take over 500 years to log that much time [@Kalra2016]. 
+100 vehicles driving 24 hours a day averaging 25 mph would take over 500 years to log that much distance[@Kalra2016]. 
 
 Simulators are far cheaper and convenient for both generating training data and verifying the performance of AI driving models. 
 Servers can drive millions of miles a day at a fraction of the per distance cost. 
-Through simulators it is possible to design and generate emergency scenarios to verify the system makes the correct responses [@Wotawa2018]; These types of scenarios are infrequent in real driving data.
-It is critical to the feasibility of creating autonomous vehicles to have the ability to verify the performance of models and autonomous systems to some degree in the simulation phases of design in order to reduce both risk and costs. 
+Through simulators it is possible to design and generate emergency scenarios to verify the system generates the correct responses [@Wotawa2018]; These types of scenarios are known as edge cases and are infrequent in real driving data.
 
-However simulators are only a simplification or representation of reality. 
-The Models have to be able to generalise in order to handle the differences between the simulator and reality.
+Physical testing of self-driving car models is complex and limited to the end of the development cycle.
+This makes prototype design, implementation, intensive testing in the simulation circuit the most effective way to verify and validate the design idea[@Rosique2019].
+
+The ability to partially verify the performance of models and autonomous systems in the simulation phases of design can reduce risks and costs.
+This is critical to feasibility of producing safe,and affordable autonomous vehicles.
+
+In designing simulators, one must account for all aspects of the physical system in order to simplify the transition from virtual to real-world scenarios[@Rosique2019].
+Simulators are only a simplification or representation of reality. 
+Self-driving car models have to be able to generalise in order to handle the differences between the simulator and reality.
+
+Currently there is no research into how well simulator trained models can generalise to handle the differences between simulators. 
+The simulator's physics engines use different approximations and equations to represent the physical world. 
+Similarly, simulator's graphical choices produce object representations with differing levels of detail and realism.
+In the case of perception based simulators (models trained using camera technology for example), the models' object classification methods need to use features that are also present in their real-world counterparts. 
+
+In the authors opinion, evaluating how simulator-trained models generalise to unseen simulators can provide insights into the problem of training models optimised to bridge this simulator-reality gap.
 
 # Method
 
-In order to learn tensorflow I followed the tutorials/series on tensorflow and autonomous vehicles from the website [pythonprogramming](https://pythonprogramming.net/tensorflow-introduction-machine-learning-tutorial/)
-
-I then set up two self-driving simulation environments, CARLA [@Dosovitskiy2017] and DeepDrive [@Quiter2018] on google's cloud computing platform. 
+Two self-driving simulation environments, CARLA [@Dosovitskiy2017] and DeepDrive [@Quiter2018] were set up on Google's cloud computing platform. 
 There were two major challenges associated with this step. 
-Firstly, the simulators were designed to be run locally with little or no support for running on cloud platforms. 
+Firstly, the simulators are designed to be run locally with little or no support for running on cloud platforms. 
 Secondly, nvidia tesla GPU's which make up most of the GPUs in computing servers do not have display ports.
 These challenges meant GUI's were mostly unavailable and therefore several workarounds had to be used to verify the results.
-Steps to replicate the installations can be found on the project's [github](https://github.com/hcollins345/PP-evaluating-ai-driving-simulators).
+Steps to replicate the installations can be found on the project's github[^1][@Collins2019].
+
+[^1]: https://github.com/hcollins345/PP-evaluating-ai-driving-simulators
+
+High performing Conditional Imitation Learning tensorflow models (CIL) for both DeepDrive and CARLA [CIL model](https://github.com/carla-simulator/imitation-learning) were then benchmarked on their respective simulators. 
+
+Then attempts were made to migrate the trained agents from one simulator to another. Modification to the tensorflow agents were made with reference to the tutorials and series on tensorflow and autonomous vehicles from the website pythonprogramming^[https://pythonprogramming.net/tensorflow-introduction-machine-learning-tutorial/].
+This involved separating the tensorflow agents from the custom learning environments that interface the tensorflow agents with their respective simulators. 
+This was challenging as the code used to write the agent assumed the presence of the simulator specific learning environments which were implemented differently for both simulators.
+
+While it was possible to normalise the sensory inputs to the agent. Replicating the environmental structure passed to the agent which governs how the agent transforms the output of its neural network to simulator controls is still ongoing.
+
+# Results
+
+
+## Simulators Running in the Cloud
+
+While the simulators CARLA [@Dosovitskiy2017] and DeepDrive [@Quiter2018] were not  built to run on a cloud computing platform, it was possible to run most of the simulator's functionalities with the methods described in the project's README[^1] [@Collins2019]  
+Examples of the simulators running in the cloud are shown in figures 1-3. 
+
+The result was the ability to leverage powerful computing hardware such as Nvidia Tesla p100s to run the simulation and machine learning software.
+This was necessary as the CARLA CIL model alone required 5.5 GB of GPU memory.
+
 
 \begin{minipage}{\linewidth}
   \centering
-  \includegraphics[width=0.98\linewidth]{./pp/000050.png}
+  \includegraphics[width=0.92\linewidth]{./pp/000050.png}
   \captionof{figure}{Carla simulator agent in rain with pedestrians and traffic \vspace{.05cm}}
 \end{minipage}
 
 \begin{minipage}{\linewidth}
   \centering
-  \includegraphics[width=0.98\linewidth]{./pp/000081.png}
+  \includegraphics[width=0.92\linewidth]{./pp/000081.png}
   \captionof{figure}{Agent stopped at traffic lights \vspace{.05cm}}
 \end{minipage}
 
 
-High performing Conditional Imitation Learning tensorflow models (CIL) for both DeepDrive and CARLA [CIL model](https://github.com/carla-simulator/imitation-learning) were then benchmarked on their respective simulators.
-
 \begin{minipage}{\linewidth}
   \centering
-  \frame{\includegraphics[width=0.96\linewidth]{./pp/Dashboard.png}}
+  \frame{\includegraphics[width=0.92\linewidth]{./pp/Dashboard.png}}
   \captionof{figure}{Monitoring status of agent in 
-  DeepDrive sim \vspace{.05cm}}
+  DeepDrive simulator \vspace{.05cm}}
 \end{minipage}
-
-I then began migrating the trained agents from one simulator to other.
-This involved separating the tf agents from the custom learning environments that allow them to interface with their respective simulators. 
-This was challenging as the code used to write the agent assumed the presence of the different learning environments which were implemented differently for both simulators.
-
-While I have managed to normalise the sensory inputs to the agent. I have struggled to replicate the environmental structure that is passed to the agent which governs how the agents transforms the output of its neural network to controls for the simulator.
-
-** Explain how this is ongoing **
-
-# Results
 
 ## Benchmarking 
 
-The benchmarking for the DeepDrive simulator can be seen below, 34 runs were conducted with the final score for each run consisting of the distance of the route completed minus penalties for excessive lane deviation and g-forces.
+The benchmarking results for the DeepDrive simulator can be seen in figure 4 below. 34 runs were conducted with the final score for each run consisting of the distance of the route completed minus penalties for excessive lane deviation and g-forces.
 
 ```{python echo=FALSE, fig.cap=''}
 import pandas as pd
@@ -146,48 +162,84 @@ plt.show()
 # 'lap time'
 ```
 \begin{minipage}{\linewidth}
-\captionof{figure}{Benchmarking results for Deepdrive agent in DeepDrive simulator}
+\captionof{figure}{Benchmarking results for Deepdrive agent in DeepDrive simulator \label{fig:BDD} \vspace{.05cm}}
 \end{minipage}
 
+23 runs were conducted for the CARLA benchmarking.
+The test suite consisted of 4 sub-tests, as examples, test 1 consists of driving straight forward while test 2 involves a right hand turn at a junction. 
+
+To give an indication of the variation, the driven kilometres required to complete each task for each trial were plotted in figure 5.
+
+```{python echo=FALSE, fig.cap=''}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import json
 
 
-# Results of learning goals
+jsons = []
+for num in range(23):
+    with open(f"pp/_benchmarks_results/ver_test_BasicExperimentSuite_Town01-{num}/metrics.json") as fil:
+        jsons.append(json.load(fil))
 
-While the activities of the Personal Pursuit are still ongoing. 
-I believe the learning goals have been fulfilled.
+exp = [[], [], [], []]
+for num in range(23):
+    a, b ,c, d  = jsons[num]['average_speed']['1.0']
+    exp[0].append(a)
+    exp[1].append(b)
+    exp[2].append(c)
+    exp[3].append(d)
 
-### **Goal 1:** Learn and gain experience in the tensorflow framework for the use and performance analysis of machine learning models  
+df = pd.DataFrame({
+        'Scenario\n one':exp[0],
+        'Scenario two':exp[1],
+        'Scenario three':exp[2],
+        'Scenario four':exp[3]
+        })
 
-This goal was achieved through the tutorials and the practical implementation of actual tensorflow models in the simulators. 
+bplot = sns.boxplot(data=df)
+bplot.set(ylabel='Kilometres driven')
+plt.tight_layout()
+plt.show()
+```
+\begin{minipage}{\linewidth}
+\captionof{figure}{Benchmark results showing kilometres driven to complete each task for Carla agent in Carla simulator \vspace{.05cm}}
+\end{minipage}
 
-An interesting caveat of the goal relates to the use of the tensorflow framework for performance analysis of machine learning models. 
-In practice when training, the tensorflow model is being evaluated continuously according to a very specific fitness function, in this case how well it replicates the actions of the test data (from human drivers or other path following algorithms). 
-The final performance analysis of the model however, does not include evaluation functions from the tensorflow framework but from experiment suites and data (such as lane deviation) from the actual simulator itself. 
-
-
-### **Goal 2:** Gain experience in the use of popular autonomous driving simulators such as CARLA and deepdrive.  
-
-While setting up CARLA and DeepDrive on a cloud compute provider was difficult. The result was the ability to leverage powerful computing hardware such as Nvidia Tesla p100s to run the simulation and machine learning software.
-
-Similarly I learnt how to configure the simulations through config files and the command line. I understand the code structure that governs the interaction between the simulator and agents and can write code to enable interaction with a running simulation as an agent.
-
-
-### **Goal 3:** Learn how to integrate tensorflow with simulator software and how to transfer models between simulators with different interfaces and features.
-
-As the project progressed it became clear that this goal is actually much more complicated than initially expected. 
-
-It can be broken down into clearer sub-goals.
-The first sub-goals is learning how to integrate tensorflow with the simulator software. In the project I used and benchmarked different tensorflow models to control agents acting in the simulator through the interfacing environments. 
-
-The second sub-goal is learning to transfer models between simulators. 
-I detached the DeepDrive CIL model from the DeepDrive environment and successfully managed to make the Sensor inputs (Camera) from the Carla simulator/ interface environment compatible with the DeepDrive tensorflow model.
-Finding the structure of the data structure to transfer the control commands mapped from the outputs of the tf model into for interfacing with the CARLA simulator is still ongoing.
-
+# Discussion
 
 
+### Variable vs Fixed time step
 
+The DeepDrive simulator runs only with variable-time step. This means that as computing loads change, the time between frames, the number of frames per second and the number of control inputs from the driving agent per second vary throughout the run.
+This is to keep the simulator running in sync with real world time. ie. if an in-game object moves at 3 m/s, it will move 3 metres every real-life second.
 
+The alternative is to use fixed-time steps, where the simulator time is desynced from the real world will take time to fully render every frame and wait for every input from the driving agent. 
+This has the benefit of making results fully reproducible.
 
+For the benchmarks, CARLA has both options but variable-time was chosen to help align the results with the DeepDrive simulator.
+
+### Comparing benchmarking results. 
+
+The results for the benchmarking tests in figures 4 and 5 obviously differ. 
+This is due to the different configuration of the test suites used in the two simulators.
+
+For example the one large test in DeepDrive suite vs the four smaller tests in CARLA. 
+As another example, in the DeepDrive tests, the metric for lane deviation is an analog value that continually increases proportional to the amount the agent moves out of its lane. 
+In contrast, the CARLA suite merely records whether or not the agent move out of its lane by a specified cut-off value as a binary value.
+
+Both simulators are built on the Unreal Engine and have similar metric available. 
+However the test suites for both simulators would need to be rewritten in order to adequately compare. 
+An alternative option would be to install a third simulator used solely for evaluating the performance of models trained in the other two simulators.
+
+# Conclusion
+
+The literature review failed to find any work exploring the use multiple simulators in the training of self-driving cars.
+
+The use of unseen simulators to aid in creating more robust self-driving car models appears to be novel area of research.
+The ability to migrate simulators to cloud computing platforms makes this research approach accessible to researchers without high-end, large memory GPU desktops.
+
+Future work, finalising the model transfers and equalising the evaluation suite for the models, is required to determine the merits of this proposed area of research.
 
 \etwocol
 

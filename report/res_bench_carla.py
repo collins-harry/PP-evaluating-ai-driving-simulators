@@ -3,14 +3,32 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 
-with open("pp/_benchmarks_results/ver_test_BasicExperimentSuite_Town01-1/metrics.json") as f:
-    bench_one = json.load(f)
 
-print(bench_one)
+jsons = []
+for num in range(23):
+    with open(f"pp/_benchmarks_results/ver_test_BasicExperimentSuite_Town01-{num}/metrics.json") as fil:
+        jsons.append(json.load(fil))
 
+exp = [[], [], [], []]
+for num in range(23):
+    a, b ,c, d  = jsons[num]['average_speed']['1.0']
+    exp[0].append(a)
+    exp[1].append(b)
+    exp[2].append(c)
+    exp[3].append(d)
+    print(a,b,c,d)
 
+df = pd.DataFrame({
+        'Scenario one':exp[0],
+        'Scenario two':exp[1],
+        'Scenario three':exp[2],
+        'Scenario four':exp[3]
+        })
 
-
+bplot = sns.boxplot(data=df)
+bplot.set(ylabel='Kilometres driven')
+plt.tight_layout()
+plt.show()
 
 # df_meas = pd.read_csv("pp/ver_test_BasicExperimentSuite_Town01-1/.csv")
 # df_sum = pd.read_csv("pp/test_BasicExperimentSuite_Town01-5/summary.csv")
