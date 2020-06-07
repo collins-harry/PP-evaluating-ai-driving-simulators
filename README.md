@@ -1,4 +1,5 @@
-# PP-evaluating-ai-driving-simulators 
+# PP-evaluating-ai-driving-simulators [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3453314.svg)](https://doi.org/10.5281/zenodo.3453314)
+
 Evaluating the generalisation of AI driving simulator trained models by their performance in other simulators
 
 ## How to ssh into the server
